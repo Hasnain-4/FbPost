@@ -19,7 +19,12 @@
 
   <body>
 
-  
+  <!--Fb comment Plugin-->
+
+  <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v8.0" nonce="92u6S0ik"></script>
+
+<!--Fb comment End-->
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-info">
   <a class="navbar-brand" href="#">
     <img src="static/images/hasntravel.jpg" alt="logo" style="width:40px;">
@@ -34,6 +39,11 @@
       <li class="nav-item active">
         <a class="nav-link text-dark" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
+      {% if user.is_authenticated %}
+      <li class="nav-item">
+        <a class="nav-link text-dark waves-effect waves-light" href="fbuser">Dashboard</a>
+      </li>
+      {% endif %} 
       <li class="nav-item">
         <a class="nav-link text-dark waves-effect waves-light" href="news">Top News</a>
       </li>
@@ -47,7 +57,18 @@
         <a class="nav-link text-dark waves-effect waves-light" href="contact">Contact Us</a>
       </li>
 {% endif %}   
-      {% if user.is_authenticated %}
+     
+    </ul>
+    
+{% if user.is_authenticated %}
+    <form class="form-inline my-2 my-lg-0" action = "/search" method == "post">
+      <input class="form-control mr-2 " name = "query" id = "query" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-dark my-3 my-sm-2 mr-4" type="submit">Search</button>
+    </form>
+
+{% endif %}
+
+ {% if user.is_authenticated %}
 
       <a class="btn btn-outline-light btn-sm my-2" href="logout" role="button">Logout</a>
       
@@ -59,15 +80,6 @@
       <a class="btn btn-outline-light btn-sm my-2 mx-1" href="signin" role="button">Sign In</a>
     {% endif %}
 
-    </ul>
-    
-{% if user.is_authenticated %}
-    <form class="form-inline my-2 my-lg-0" action = "/search" method == "post">
-      <input class="form-control mr-sm-2" name = "query" id = "query" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-dark my-3 my-sm-2" type="submit">Search</button>
-    </form>
-
-{% endif %}
   </div>
 </nav>
 
@@ -86,7 +98,7 @@
   <!-- To display icons without downloading anything -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 <!-- Footer -->
-<footer class="page-footer font-small unique-color-dark">
+<footer class="page-footer font-small bg-dark">
 
   <div style="background-color: #00A1AD;">
     <div class="container">
@@ -96,7 +108,7 @@
 
         <!-- Grid column -->
         <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-          <h6 class="mb-0">Get connected with us on social networks!</h6>
+          <h6 class="mb-0 ">Get connected with me on social media</h6>
         </div>
         <!-- Grid column -->
 
@@ -143,11 +155,9 @@
       <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
 
         <!-- Content -->
-        <h6 class="text-uppercase font-weight-bold">Company name</h6>
-        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-        <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-          consectetur
-          adipisicing elit.</p>
+        <h6 class="text-uppercase font-weight-bold text-light">Company name</h6>
+        <hr class="bg-info accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p class = "text text-info">Hasnain Ansari - Enthusiastic,Self-motivated Computer Science Engineer seeking a challenging position as a Software Developer. And eager to explore the world with Python</p>
 
       </div>
       <!-- Grid column -->
@@ -156,19 +166,19 @@
       <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
 
         <!-- Links -->
-        <h6 class="text-uppercase font-weight-bold">Products</h6>
-        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <h6 class="text-uppercase font-weight-bold text-light">Products</h6>
+        <hr class="bg-info accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
         <p>
-          <a href="#!">MDBootstrap</a>
+          <a href="#!">Artificial Intelligence</a>
         </p>
         <p>
-          <a href="#!">MDWordPress</a>
+          <a href="#!">Machine Learning</a>
         </p>
         <p>
-          <a href="#!">BrandFlow</a>
+          <a href="#!">Data Science</a>
         </p>
         <p>
-          <a href="#!">Bootstrap Angular</a>
+          <a href="#!">Internet of Things</a>
         </p>
 
       </div>
@@ -178,19 +188,19 @@
       <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
 
         <!-- Links -->
-        <h6 class="text-uppercase font-weight-bold">Useful links</h6>
-        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <h6 class="text-uppercase font-weight-bold text-light">Useful links</h6>
+        <hr class="bg-info accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
         <p>
-          <a href="#!">Your Account</a>
+          <a href="#!">Starting Career</a>
         </p>
         <p>
-          <a href="#!">Become an Affiliate</a>
+          <a href="#!">Django Development</a>
         </p>
         <p>
-          <a href="#!">Shipping Rates</a>
+          <a href="#!">Flask Development</a>
         </p>
         <p>
-          <a href="#!">Help</a>
+          <a href="#!">Help?</a>
         </p>
 
       </div>
@@ -200,16 +210,16 @@
       <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
 
         <!-- Links -->
-        <h6 class="text-uppercase font-weight-bold">Contact</h6>
-        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-        <p>
-          <i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
-        <p>
-          <i class="fas fa-envelope mr-3"></i> info@example.com</p>
-        <p>
-          <i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
-        <p>
-          <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+        <h6 class="text-uppercase font-weight-bold text-light">Contact</h6>
+        <hr class="bg-info accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p class = "text text-info">
+          <i class="fas fa-home mr-3 text-light"></i> Nagpur, MAHARASHTRA</p>
+        <p class = "text text-info">
+          <i class="fas fa-envelope mr-3 text-light"></i> hasnain@gmail.com</p>
+        <p class = "text text-info">
+          <i class="fas fa-phone mr-3 text-light"></i> + 91 970*****89</p>
+        <p class = "text text-info">
+          <i class="fas fa-print mr-3 text-light"></i> + 0326-2350-376</p>
 
       </div>
       <!-- Grid column -->
@@ -218,11 +228,11 @@
     <!-- Grid row -->
 
   </div>
+<hr class="hr mb-0 bg-info">
   <!-- Footer Links -->
-
   <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+  <div class="footer-copyright text-center py-3 text-light">© Hasnain :
+    <a class = "text-info" href="https://docs.djangoproject.com/en/3.1/"> DjangoDeveloper.fresher</a>
   </div>
   <!-- Copyright -->
 

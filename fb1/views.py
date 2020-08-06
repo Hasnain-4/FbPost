@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User , auth
 from django.contrib import messages
-from .models import Contact, Imagepost, Videopost,Userprofile, Postcomment
+from .models import Contact, Imagepost, Videopost,Userprofile
 
 # Create your views here.
 
@@ -97,23 +97,23 @@ def fbuser(request):
     #fetchuserdata = Userprofile.objects.order_by('profilepic').last() #for getting last person or last data from database
     #fetchuserdata = Userprofile.objects.latest('profilepic') #for getting latest person or latest data from database
     fetchuserdata = Userprofile.objects.all().last() #for getting last person or last data from database
-    fetchimagepost = Imagepost.objects.all()
-    fetchvideopost = Videopost.objects.all()
-    pm1 = Postcomment.objects.all().last()
+    fetchimagepost = Imagepost.objects.all()[::-1]
+    fetchvideopost = Videopost.objects.all()[::-1]
+    #pm1 = Postcomment.objects.all().last()
     
-    if request.method == 'POST':
+    """ if request.method == 'POST':
 
         postmessage = request.POST.get('postcomment')
         pm = Postcomment(message1=postmessage)
         pm.save()
-        return redirect("/fbuser")
+        return redirect("/fbuser") """
     
     # newsimagelink = ne.newsimagelink
     # newsheading = ne.newsheading
     # newsbywithdate = ne.newsbywithdate
     # newsbody = ne.newsbody
     # newslist = [newsimagelink,newsheading,newsbywithdate,newsbody]
-    return render(request , 'fbuser.html', {'pmessage':pm1,'fetchimage':fetchimagepost , 'fetchvideo': fetchvideopost , 'fetchuser':fetchuserdata})
+    return render(request , 'fbuser.html', {'fetchimage':fetchimagepost , 'fetchvideo': fetchvideopost , 'fetchuser':fetchuserdata})
             
            
 def imagepost(request):

@@ -26,7 +26,7 @@
 <div class = "container  pt-5">
 
 <div class="row">
-
+<!--Profile Section Starts-->
   <div class="col-sm-3">
   
   <div class="card text-center" style="width: 12rem;">
@@ -47,6 +47,7 @@
   </div>
 </div>
   </div>
+  <!--Profile Section Ends-->
 
 
   <div class="col-sm-7 col-offset-md-2">
@@ -62,7 +63,7 @@
  
 </ul>
 <div class="tab-content" id="myTabContent">
-
+<!--Image Posts Section Starts-->
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><div class="card">
      
       {% for fetch1 in fetchimage %}
@@ -90,9 +91,11 @@
     <img src="{{fetch1.image.url}}" class="img-fluid" style="width: auto; width: 470px; height: 350px;" alt="Responsive image">
       {% endif %}
 
-      <hr class="hr mt-3 mb-3">
+      </div>
+      
+    </div>
         
-{% if pmessage %}
+{% comment %} {% if pmessage %}
         <div class="media">
           <img src="static/images/hasntravel.jpg" class="align-self-start mr-3 ml-2 mr-2" style="width: 40px; height: 40px;" alt="...">
 
@@ -102,9 +105,9 @@
               <p>{{pmessage.message}}</p>          
           </div>
         </div>
-{% endif %}
+{% endif %} {% endcomment %}
         
-      <div class = "container mt-3 pl-0 mb-3">
+      {% comment %} <div class = "container mt-3 pl-0 mb-3">
 
     <form action="fbuser" method="post">
 
@@ -118,18 +121,32 @@
     <button type="submit" class="btn btn-primary btn-sm">Post</button>
   </div>
           
-  </div>
-  <hr class="hr mt-3 mb-3">
+  </div> {% endcomment %}
 
-      </div>
       
-    </div>
     
+        <hr class="hr mt-3 mb-3">
+
+         <!--Fb Like Section Plugin-->
+
+        <div class="fb-like ml-2" data-href="http://127.0.0.1:8000/" data-width="" data-layout="standard" data-action="like" data-size="large" data-share="true"></div>
+
+         <!--Fb Comment Section Plugin-->
+
+        <div class="fb-comments" data-href="http://127.0.0.1:8000/" data-numposts="1" data-width=""></div>
+
+        <!--Fb plugin end-->
       {% endif %}
+
     {% endfor %}
 
 </div>
 </div>
+
+<!--Image Posts Section Ends-->
+
+
+<!--Video Posts Section Starts-->
 
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"><div class="card">
    
@@ -157,9 +174,8 @@
         <div class="embed-responsive embed-responsive-16by9">
 <iframe width="470" height="315" class = "embed-responsive-item" src="https://www.youtube.com/embed/{{fetch2.utube_video_link}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>      
       </div>
-        <hr class="hr mt-3 mb-3">
 
-        {% if pmessage %}
+   {% comment %}      {% if pmessage %}
         <div class="media">
           <img src="static/images/hasntravel.jpg" class="align-self-start mr-3 ml-2 mr-2" style="width: 40px; height: 40px;" alt="...">
 
@@ -187,21 +203,34 @@
           
   </div>
   <hr class="hr mt-3 mb-3">
-
+ {% endcomment %}
       </div>
       
     </div>
+        <hr class="hr mt-3 mb-3">
 
+        <!--Fb Like Section Plugin-->
+
+        <div class="fb-like ml-2" data-href="http://127.0.0.1:8000/" data-width="" data-layout="standard" data-action="like" data-size="large" data-share="true"></div>
+
+        <!--Fb Comment Section Plugin-->
+
+        <div class="fb-comments" data-href="http://127.0.0.1:8000/" data-numposts="1" data-width=""></div>
+
+        <!--Fb plugin end-->
      {% endif %}
  {% endfor %}
 
 </div>
 </div>
   
+<!--Video Posts Section Ends-->
 
 </div>
 
 
+  </div>
+  </div>
   </div>
   
 

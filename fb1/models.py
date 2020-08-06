@@ -34,10 +34,10 @@ class Userprofile(models.Model):
     profilepic = models.ImageField(default = 'static/images/hasntravel.jpg')
     about = models.TextField()
 
-class Postcomment(models.Model):
+""" class Postcomment(models.Model):
     message1 = models.CharField(max_length = 222)
     date = models.DateTimeField(default=datetime.now())
-
+ """
     
 
 
